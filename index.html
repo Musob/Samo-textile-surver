@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samo Textile · Hamkor so‘rovnomasi</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <!-- Font Awesome (ixtiyoriy) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Asosiy CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="survey-card">
+    <div class="survey-header">
+      <h1>SAMO TEXTILE</h1>
+      
+    </div>
+    <div class="survey-body">
+      <form id="surveyForm" onsubmit="handleSubmit(event)">
+        <!-- 1. Fabrika nomi -->
+        <div class="field">
+          <label for="factoryName">
+            <i class="fas fa-building"></i>
+            <span>Marhamat qilib fabrikangiz nomini kiriting</span>
+          </label>
+          <input type="text" id="factoryName" name="factoryName" placeholder="Masalan: Baraka Tekstil MCHJ" required>
+        </div>
+
+        <!-- 2. Avvaldan ishlab kelasizmi? (HA/YO‘Q) -->
+        <div class="field">
+          <label>
+            <i class="fas fa-handshake"></i>
+            <span>Biz bilan avvaldan beri ishlab kelasizmi yoki yaqin kunlarda ish boshlamoqchimisiz?</span>
+          </label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="collaboration" value="ha" checked>
+              <span>Ha, avvaldan ishlaymiz</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="collaboration" value="yoq">
+              <span>Yo‘q, yaqinda boshlamoqchimiz</span>
+            </label>
+          </div>
+          <div class="field-hint">Ikkala holatda ham davom eting</div>
+        </div>
+
+        <!-- 3. Noqulayliklar -->
+        <div class="field">
+          <label for="difficulties">
+            <i class="fas fa-comment-dots"></i>
+            <span>Biz bilan ishlash davomida qanday noqulayliklarga duch keldingiz? (Izoh)</span>
+          </label>
+          <textarea id="difficulties" name="difficulties" rows="3" placeholder="Masalan: yetkazib berish vaqti, sifat, muloqot..."></textarea>
+        </div>
+
+        <!-- 4. Qanday qulayliklar hohlaysiz? -->
+        <div class="field">
+          <label for="conveniences">
+            <i class="fas fa-star"></i>
+            <span>Fabrikamiz tomonidan sizga qanday qulayliklar yaratib berishimizni hohlaysiz? (Izoh)</span>
+          </label>
+          <textarea id="conveniences" name="conveniences" rows="3" placeholder="Masalan: maxsus narx, transport, ertalabki smena..."></textarea>
+        </div>
+
+        <!-- 5. Kunlik ishlab chiqarish hajmi -->
+        <div class="field">
+          <label for="dailyVolume">
+            <i class="fas fa-chart-simple"></i>
+            <span>Kunlik ishlab chiqarish hajmingiz qancha? (Izoh)</span>
+          </label>
+          <input type="text" id="dailyVolume" name="dailyVolume" placeholder="masalan: 500 dona / 200 kg / 30 to‘p">
+          <div class="field-hint">Raqam yoki tavsif — o‘zingizga qulay usulda</div>
+        </div>
+
+        <div class="submit-area">
+          <button type="submit">
+            <span>Yuborish</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <p class="privacy-note">
+          <i class="fas fa-lock"></i> Maʼlumotlaringiz maxfiy va faqat hamkorlikni yaxshilash uchun ishlatiladi.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const factory = document.getElementById('factoryName').value.trim();
+      if (!factory) {
+        alert('Iltimos, fabrika nomini kiriting.');
+        return;
+      }
+      alert('✅ So‘rovnomangiz qabul qilindi!\n\nSamo Textile jamoasi sizga minnatdorlik bildiradi. Fikrlaringizni albatta inobatga olamiz.');
+      // Formani tozalash (ixtiyoriy)
+      // e.target.reset();
+    }
+  </script>
+</body>
+</html>
